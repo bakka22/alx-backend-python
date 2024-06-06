@@ -1,4 +1,4 @@
-#!/use/bin/python3
+#!/use/bin/env python3
 """ function arguments annotations """
 
 
