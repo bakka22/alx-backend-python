@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ type annotations """
-from typing import Iterable, Tuple, Sequence
+from typing import List, Iterable, Tuple, Sequence
 
 
-def element_length(lst: Iterable[Sequence]) -> Iterable[Tuple[Sequence, int]]:
+def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
     return [(i, len(i)) for i in lst]
