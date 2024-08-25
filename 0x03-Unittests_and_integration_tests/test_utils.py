@@ -15,10 +15,19 @@ class TestAccessNestedMap(unittest.TestCase):
         """ test normal range inputs for utils.access_nested_map """
         self.assertEqual(access_nested_map(mapped, path), expected)
 
-    @parameterized.expand([
+    """@parameterized.expand([
         ({}, ("a",), KeyError),
         ({"a": 1}, ("a", "b"), KeyError)])
     def test_access_nested_map_exeption(self, mapped, path, exception):
         """ test invalid inputs """
         with self.assertRaises(exception) as e:
-            access_nested_map(mapped, path)
+            access_nested_map(mapped, path)"""
+
+    @parameterized.expand([
+        ({}, ("a",), 'a'),
+        ({"a": 1}, ("a", "b"), 'b')
+    ])
+    def test_access_nested_map_exception(self, nested_map, path, expected):
+        with self.assertRaises(KeyError) as err:
+            access_nested_map(nested_map, path)
+        self.assertEqual(f"KeyError('{expected}')", repr(err.exception))
